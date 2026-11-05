@@ -1,0 +1,17 @@
+# SPDX-FileCopyrightText: 2026 東京AI映像合同会社 (Tokyo AI Visuals LLC)
+# SPDX-License-Identifier: GPL-3.0-or-later
+schema_version = "1.0.0"
+
+id = "kirapaint"
+version = "0.1.0"
+name = "KiraPaint"
+tagline = "Painterly 2.5D look with crushed-diamond sparkle in one click"
+maintainer = "Tokyo AI Visuals LLC"
+type = "add-on"
+website = "https://github.com/kanaworksai-hue/kirapaint"
+
+tags = ["Material", "Render", "Compositing", "Lighting"]
+
+blender_version_min = "5.0.0"
+
+license = ["SPDX:GPL-3.0-or-later"]
