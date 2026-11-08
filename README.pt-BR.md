@@ -44,6 +44,7 @@ Funciona com **qualquer modelo**: baixado, escaneado ou gerado por IA. Ele nunca
 - **Totalmente reversível:** seus materiais nunca são substituídos. O **Remove** devolve materiais, world e compositor como estavam.
 - **Se ajusta sozinho:** o tamanho das facetas e a espessura do contorno acompanham o tamanho do modelo; o tamanho do pincel acompanha a resolução do render.
 - **Realista ↔ 2.5D em um slider só:** coloque keyframes no **2.5D** e você ganha de brinde a transição de "foto que vira pintura".
+- **Interface em japonês:** com o Blender em japonês, o KiraPaint muda para japonês sozinho. Num Blender em inglês, escolha 日本語 no menu 🌐 no canto superior direito do painel para mostrar só o painel em japonês.
 - **10 fundos:** Night Purple, Starry Sky, Sakura Pink, Strawberry Polka, Mint Soda, Sky Soda, Lemon Cream, Peach Dream, Magic Sunset e Soft Studio. Clique em uma miniatura no painel para trocar; os rabiscos mudam de cor para combinar.
 - **Cena em um clique:** EEVEE, um esquema de luz (luz principal, luzes de recorte e cinco luzes coloridas só de especular para os reflexos), o fundo e o compositor.
 - **Rabiscos de giz:** estrelas, corações, espirais e brilhinhos espalhados em volta do modelo, nunca em cima dele. E vapor para comida.
@@ -166,6 +167,14 @@ No painel **Scene & Animation**:
 </details>
 
 ## ❓ Perguntas frequentes
+
+<details>
+<summary><b>Tem interface em japonês?</b></summary>
+
+Tem. Com o Blender em japonês (Edit → Preferences → Interface → Translation), o painel, as dicas e as mensagens ficam em japonês automaticamente. Para manter o Blender em inglês e ver só o KiraPaint em japonês, escolha 日本語 no menu 🌐 no canto superior direito do painel (também nas preferências do add-on).
+
+<img src="docs/panel_languages.png" alt="Blender em japonês, Blender em inglês com o painel em japonês, inglês" width="820">
+</details>
 
 <details>
 <summary><b>Funciona no Cycles?</b></summary>

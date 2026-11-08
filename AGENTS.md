@@ -90,6 +90,15 @@ Omit `--preset` on later tweaks: the current look is kept and only what you pass
 | realistic → painted reveal animation | `--reveal 24` |
 | rotate / turntable / 回転 / 旋转 N degrees | `--turntable 60` |
 
+## Japanese UI
+The panel, tooltips and messages are in Japanese automatically when Blender's language is Japanese. If the human
+writes in Japanese but their Blender is in English, offer to switch only the KiraPaint panel to Japanese:
+```bash
+<blender> -b --python agent/kirapaint_agent.py -- --ui-language JA      # AUTO (follow Blender) / JA / EN
+```
+In a running Blender: `bpy.context.preferences.addons["<package>"].preferences.ui_language = "JA"` (the package is
+`bl_ext.user_default.kirapaint` for a normal install). The main button is 「キラキラにする」 in Japanese.
+
 ## 5. Fine-tuning in a running Blender
 Settings live on `bpy.context.scene.kirapaint`: `paint stroke facets gloss iridescence brush sparkle bloom outline background`.
 Setting them updates every KiraPaint material, the compositor and the glint lights at once.

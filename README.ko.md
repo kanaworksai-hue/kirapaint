@@ -44,6 +44,7 @@
 - **언제든 되돌리기:** 머티리얼을 바꿔치기하지 않아요. **Remove**(제거)를 누르면 머티리얼, World, 컴포지터가 원래대로 돌아옵니다.
 - **크기는 알아서:** 면 크기와 외곽선 두께는 모델 크기에, 붓 크기는 렌더 해상도에 맞춰 자동으로 정해져요.
 - **사실적 ↔ 2.5D를 슬라이더 하나로:** **2.5D** 값에 키프레임을 넣으면 "사진이 그림으로 바뀌는" 연출이 바로 완성돼요.
+- **일본어 UI 지원:** Blender를 일본어로 설정하면 KiraPaint도 자동으로 일본어로 표시돼요. 영어 Blender에서도 패널 오른쪽 위 🌐 메뉴에서 「日本語」를 고르면 패널만 일본어로 바꿀 수 있어요.
 - **배경 10종:** Night Purple, Starry Sky, Sakura Pink, Strawberry Polka, Mint Soda, Sky Soda, Lemon Cream, Peach Dream, Magic Sunset, Soft Studio. 패널에서 썸네일을 클릭하면 바로 바뀌고, 낙서 색도 배경에 맞춰 함께 바뀝니다.
 - **씬 세팅도 클릭 한 번:** EEVEE, 조명 세트(키 라이트, 림 라이트, 스펙큘러 전용 컬러 반짝임 라이트 5개), 배경, 컴포지터까지 한 번에 준비해요.
 - **분필 낙서:** 별, 하트, 소용돌이, 반짝이를 모델 위가 아닌 주변에만 배치해요. 음식에는 김도 그려 넣을 수 있어요.
@@ -166,6 +167,14 @@ Claude Code나 Codex처럼 컴퓨터를 조작할 수 있는 AI 에이전트에�
 </details>
 
 ## ❓ 자주 묻는 질문
+
+<details>
+<summary><b>일본어 UI가 있나요?</b></summary>
+
+네. Blender 언어를 일본어로 설정하면(편집 → 환경 설정 → 인터페이스 → 번역) 패널, 툴팁, 메시지가 자동으로 일본어가 됩니다. Blender는 영어 그대로 두고 KiraPaint만 일본어로 보고 싶다면, KiraPaint 패널 오른쪽 위 🌐 메뉴에서 「日本語」를 선택하세요(애드온 설정에서도 바꿀 수 있어요).
+
+<img src="docs/panel_languages.png" alt="일본어 Blender, 영어 Blender에서 패널만 일본어, 영어" width="820">
+</details>
 
 <details>
 <summary><b>Cycles에서도 쓸 수 있나요?</b></summary>

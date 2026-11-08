@@ -5,10 +5,11 @@
 #   KiraPaint by KanaWorks_AI (@KanaWorks_AI) — https://github.com/kanaworksai-hue/kirapaint
 """KiraPaint: painterly 2.5D look with crushed-diamond sparkle, for EEVEE, in one click."""
 
-from . import ops, ui
+from . import i18n, ops, ui
 
 
 def register():
+    i18n.register()
     ops.register()
     ui.register()
 
@@ -16,3 +17,4 @@ def register():
 def unregister():
     ui.unregister()
     ops.unregister()
+    i18n.unregister()

@@ -32,6 +32,7 @@ Options:
   --save PATH            save the .blend here (default: do not save)
   --render PATH          render a PNG (adds a camera if the scene has none)
   --remove               take KiraPaint out of the scene again
+  --ui-language NAME     panel language: AUTO (follow Blender), JA (日本語) or EN; saved to the user's preferences
   --list                 print the presets and exit
 Exit code 0 on success; the last line printed starts with "KIRAPAINT OK" or "KIRAPAINT ERROR".
 """
@@ -111,6 +112,20 @@ def main():
     if not installed():
         fail("KiraPaint is not installed (run with --install kirapaint.zip)")
     api, core = package()
+
+    if arg("--ui-language"):
+        lang = arg("--ui-language").upper()
+        if lang not in ("AUTO", "JA", "EN"):
+            fail("--ui-language must be AUTO, JA or EN")
+        if bpy.app.factory_startup:
+            fail("do not use --factory-startup with --ui-language; it is saved into the user's preferences")
+        base = bpy.types.KIRAPAINT_OT_make_kira.__module__.rsplit(".", 1)[0]
+        bpy.context.preferences.addons[base].preferences.ui_language = lang
+        bpy.ops.wm.save_userpref()
+        print("KiraPaint panel language:", lang)
+        if not any(a in argv for a in ("--preset", "--model", "--render", "--save", "--remove")):
+            print("KIRAPAINT OK ui language", lang)
+            return
 
     if arg("--list", flag=True):
         for key, label, desc in api.list_presets():

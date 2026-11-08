@@ -119,6 +119,29 @@ try:
     check("outline removed", cube.modifiers.get(core.OUTLINE_MOD) is None)
     check("lights removed", bpy.data.collections.get(core.LIGHTS_COLLECTION) is None)
     check("world restored", scene.world is None or scene.world.name != core.WORLD_NAME)
+    # Japanese UI: automatic (Blender in Japanese) and by hand (panel menu)
+    from kirapaint import i18n, ops as kops
+    import bpy.app.translations as T
+    check("english by default", i18n.t("Stroke") == "Stroke")
+    view = bpy.context.preferences.view
+    view.language = "ja_JP"
+    view.use_translate_interface = True
+    view.use_translate_tooltips = True
+    check("japanese auto", i18n.is_japanese() and i18n.t("Stroke") == "砕け具合")
+    check("operator label translated", T.pgettext_iface("Make It Kira", "Operator") == "キラキラにする")
+    check("tooltip translated", T.pgettext_tip("Soft glow") == "ふんわりした光のにじみ")
+    check("preset names in japanese", kops._preset_items(None, None)[0][1] == "キラ（砕いたダイヤ）")
+    check("background names in japanese", kops._background_items(None, None)[0][1] == "夜空パープル")
+    check("report in japanese", i18n.report("KiraPaint Soft Paint applied to 2 object(s).") ==
+          "KiraPaint（ソフトペイント）を 2 個のオブジェクトに適用しました。")
+    view.language = "en_US"
+    check("back to english", i18n.t("Stroke") == "Stroke")
+    i18n.preference = lambda: "JA"
+    check("japanese by hand", i18n.t("Gloss") == "光沢" and i18n.t("Make It Kira") == "キラキラにする")
+    i18n.preference = lambda: "EN"
+    view.language = "ja_JP"
+    check("english by hand on japanese blender", i18n.t("Gloss") == "Gloss")
+    view.language = "en_US"
     kirapaint.unregister()
     check("unregister clean", not hasattr(bpy.types.Scene, "kirapaint"))
     kirapaint.register()

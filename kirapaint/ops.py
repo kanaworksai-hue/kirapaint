@@ -6,11 +6,18 @@ import bpy
 import bpy.utils.previews as bpy_previews
 from bpy.props import BoolProperty, EnumProperty, FloatProperty, IntProperty, PointerProperty, StringProperty
 
-from . import api, backgrounds, core, doodles, nodes
+from . import api, backgrounds, core, doodles, i18n, nodes
 from .presets import LOOK_KEYS, ORDER, PRESETS
 
 PRESET_ITEMS = [(k, PRESETS[k]["label"], PRESETS[k]["description"]) for k in ORDER]
 _previews = None
+_item_cache = {}   # Blender needs the strings of dynamic enum items to stay alive
+
+
+def _preset_items(self, context):
+    items = [(k, i18n.t(PRESETS[k]["label"]), i18n.t(PRESETS[k]["description"]), i) for i, k in enumerate(ORDER)]
+    _item_cache["preset"] = items
+    return items
 
 
 def _background_items(self, context):
@@ -18,8 +25,10 @@ def _background_items(self, context):
     for i, key in enumerate(backgrounds.ORDER):
         bg = backgrounds.BACKGROUNDS[key]
         icon = _previews[key].icon_id if _previews is not None and key in _previews else 0
-        items.append((key, bg["label"], f"{bg['ja']} / {bg['label']}", icon, i))
-    items.append(("KEEP", "Keep Mine", "Keep your own world (reflections get less colorful)", "WORLD", len(items)))
+        items.append((key, i18n.t(bg["label"]), f"{bg['ja']} / {bg['label']}", icon, i))
+    items.append(("KEEP", i18n.t("Keep Mine"), i18n.t("Keep your own world (reflections get less colorful)"),
+                  "WORLD", len(items)))
+    _item_cache["background"] = items
     return items
 
 
@@ -73,7 +82,7 @@ class KiraPaintSettings(bpy.types.PropertyGroup):
     updating: BoolProperty(default=False, options={"SKIP_SAVE", "HIDDEN"})
     paint: FloatProperty(name="2.5D", description="0 = plain render, 1 = full KiraPaint. Animate it for a reveal",
                          default=1.0, min=0.0, max=1.0, subtype="FACTOR", options={"ANIMATABLE"})
-    preset: EnumProperty(name="Preset", items=PRESET_ITEMS, default="KIRA", update=_preset_changed)
+    preset: EnumProperty(name="Preset", items=_preset_items, default=0, update=_preset_changed)
     stroke: FloatProperty(name="Stroke", description="How strongly the surface breaks into painted facets",
                           default=0.72, min=0.0, max=1.0, subtype="FACTOR", update=_look_changed)
     facets: FloatProperty(name="Facet Density", description="More, smaller facets (1 = about 6 across the object)",
@@ -114,14 +123,14 @@ class KIRAPAINT_OT_apply(bpy.types.Operator):
         except ValueError as err:
             self.report({"ERROR"}, str(err))
             return {"CANCELLED"}
-        self.report({"INFO"}, report)
+        self.report({"INFO"}, i18n.report(report))
         return {"FINISHED"}
 
 
 class KIRAPAINT_OT_make_kira(bpy.types.Operator):
-    """One call for scripts and AI agents (all options in one place)."""
     bl_idname = "kirapaint.make_kira"
     bl_label = "Make Kira (one call)"
+    bl_description = "One call for scripts and AI agents (all options in one place)"
     bl_options = {"REGISTER", "UNDO"}
 
     preset: EnumProperty(items=[("KEEP", "Keep", "")] + PRESET_ITEMS, default="KEEP")
@@ -156,7 +165,7 @@ class KIRAPAINT_OT_make_kira(bpy.types.Operator):
         except ValueError as err:
             self.report({"ERROR"}, str(err))
             return {"CANCELLED"}
-        self.report({"INFO"}, report)
+        self.report({"INFO"}, i18n.report(report))
         return {"FINISHED"}
 
 
@@ -167,7 +176,7 @@ class KIRAPAINT_OT_remove(bpy.types.Operator):
     bl_options = {"REGISTER", "UNDO"}
 
     def execute(self, context):
-        self.report({"INFO"}, api.remove(context=context))
+        self.report({"INFO"}, i18n.report(api.remove(context=context)))
         return {"FINISHED"}
 
 
@@ -186,7 +195,7 @@ class KIRAPAINT_OT_doodles(bpy.types.Operator):
             return {"FINISHED"}
         objs = core.kira_objects(scene) or api.resolve_objects(context=context)
         if not objs:
-            self.report({"WARNING"}, "No objects to draw around")
+            self.report({"WARNING"}, i18n.report("No objects to draw around"))
             return {"CANCELLED"}
         doodles.add_doodles(scene, objs, steam=scene.kirapaint.steam)
         return {"FINISHED"}
@@ -216,7 +225,7 @@ class KIRAPAINT_OT_reveal(bpy.types.Operator):
     def execute(self, context):
         scene = context.scene
         a, b = core.add_reveal(scene, length=scene.kirapaint.reveal_length)
-        self.report({"INFO"}, f"Reveal: frames {a}-{b}")
+        self.report({"INFO"}, i18n.report(f"Reveal: frames {a}-{b}"))
         return {"FINISHED"}
 
 
@@ -236,7 +245,26 @@ class KIRAPAINT_OT_turntable(bpy.types.Operator):
         return {"FINISHED"}
 
 
-CLASSES = (KiraPaintSettings, KIRAPAINT_OT_apply, KIRAPAINT_OT_make_kira, KIRAPAINT_OT_remove,
+def _language_changed(self, context):
+    for window in context.window_manager.windows:
+        for area in window.screen.areas:
+            area.tag_redraw()
+
+
+class KiraPaintPreferences(bpy.types.AddonPreferences):
+    bl_idname = __package__
+
+    ui_language: EnumProperty(
+        name="UI Language", description="Language of the KiraPaint panel. Automatic follows Blender's own language",
+        items=[("AUTO", "Auto", "Automatic (follow Blender)"), ("JA", "日本語", "日本語で表示"),
+               ("EN", "English", "Show in English")],
+        default="AUTO", update=_language_changed)
+
+    def draw(self, context):
+        self.layout.prop(self, "ui_language", text=i18n.t("UI Language"), translate=False)
+
+
+CLASSES = (KiraPaintPreferences, KiraPaintSettings, KIRAPAINT_OT_apply, KIRAPAINT_OT_make_kira, KIRAPAINT_OT_remove,
            KIRAPAINT_OT_doodles, KIRAPAINT_OT_relight, KIRAPAINT_OT_reveal, KIRAPAINT_OT_turntable)
 
 

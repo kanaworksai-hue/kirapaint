@@ -44,6 +44,7 @@ It works on **any model**: downloaded, scanned or AI-generated. It never replace
 - **Fully reversible:** your materials are never replaced. **Remove** puts materials, world and compositor back.
 - **Sizes itself:** facet size and outline width follow the model's size; brush size follows the render resolution.
 - **Realistic ↔ 2.5D on one slider:** keyframe **2.5D** and you get the "photo turns into a painting" reveal for free.
+- **Japanese UI:** KiraPaint switches to Japanese automatically when Blender is set to Japanese. On an English Blender, pick 日本語 in the 🌐 menu at the top right of the panel to show just the panel in Japanese. Terms follow Blender's official Japanese translation.
 - **10 backgrounds:** Night Purple, Starry Sky, Sakura Pink, Strawberry Polka, Mint Soda, Sky Soda, Lemon Cream, Peach Dream, Magic Sunset and Soft Studio. Click a thumbnail in the panel to switch; the doodles recolor to match.
 - **One-click scene:** EEVEE, a light rig (key, rims and five colored specular-only glint lights), the backdrop and the compositor.
 - **Chalk doodles:** stars, hearts, swirls and twinkles placed around the model, never on it. Steam for food.
@@ -166,6 +167,14 @@ In the **Scene & Animation** panel:
 </details>
 
 ## ❓ FAQ
+
+<details>
+<summary><b>Is there a Japanese UI?</b></summary>
+
+Yes. With Blender set to Japanese (Edit → Preferences → Interface → Translation), the panel, tooltips and messages switch to Japanese automatically. To keep Blender in English and show only KiraPaint in Japanese, pick 日本語 in the 🌐 menu at the top right of the KiraPaint panel (also in the add-on preferences).
+
+<img src="docs/panel_languages.png" alt="Japanese Blender, English Blender with the panel in Japanese, English" width="820">
+</details>
 
 <details>
 <summary><b>Does it work in Cycles?</b></summary>

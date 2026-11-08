@@ -3,7 +3,7 @@
 schema_version = "1.0.0"
 
 id = "kirapaint"
-version = "0.1.0"
+version = "0.2.0"
 name = "KiraPaint"
 tagline = "Painterly 2.5D look with crushed-diamond sparkle in one click"
 maintainer = "Tokyo AI Visuals LLC"
