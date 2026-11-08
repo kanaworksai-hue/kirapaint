@@ -9,6 +9,7 @@
   <img alt="AI agent ready" src="https://img.shields.io/badge/AI_agent-ready-19b8d6?style=flat-square">
   <img alt="Free" src="https://img.shields.io/badge/price-free-2ea44f?style=flat-square">
   <a href="LICENSE"><img alt="License: GPL-3.0-or-later" src="https://img.shields.io/badge/license-GPL--3.0--or--later-6b4dff?style=flat-square"></a>
+  <a href="NOTICE.md"><img alt="Credit: KanaWorks_AI" src="https://img.shields.io/badge/credit-%40KanaWorks__AI-ff6aa2?style=flat-square"></a>
   <a href="https://github.com/kanaworksai-hue/kirapaint/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/kanaworksai-hue/kirapaint?style=flat-square&logo=github&label=stars&color=f5c518"></a>
 </p>
 
@@ -193,8 +194,24 @@ flowchart LR
 <details>
 <summary><b>渲染出来的图片和视频能商用吗？</b></summary>
 
-可以。用 KiraPaint 做出来的图片和视频都是你自己的作品。GPL 只适用于插件本身的代码，不影响你用它做出的作品（所用模型和贴图请遵守各自的许可）。
+可以。用 KiraPaint 做出来的图片和视频都是你自己的作品。GPL 只适用于插件本身的代码，不影响你用它做出的作品（所用模型和贴图请遵守各自的许可）。不需要署名，不过加上 `Made with KiraPaint by @KanaWorks_AI` 我们会很开心。
 </details>
+
+## 📝 署名
+
+KiraPaint 免费，可以商用。
+
+**再分发、修改或打包本插件时**（fork、修改版、移植版、包含它的合集或产品等，无论收费与否），**必须**在插件说明和文档中原样保留下面这一行（GPL-3.0 第 7 条 (b) 附加条款，详见 [NOTICE.md](NOTICE.md)）：
+
+```
+KiraPaint by KanaWorks_AI (@KanaWorks_AI) — https://github.com/kanaworksai-hue/kirapaint
+```
+
+**用它做出的图片和视频**不需要署名。如果愿意，在正文或简介里加上这一行，我们会很开心：
+
+```
+Made with KiraPaint by @KanaWorks_AI
+```
 
 ## ⭐ 点个 Star
 
@@ -239,7 +256,7 @@ agent/kirapaint_agent.py  给 AI 代理用的命令行
 
 ## 📄 许可和致谢
 
-- **本插件：** Copyright © 2026 东京AI映像合同会社。以 [GPL-3.0-or-later](LICENSE) 发布。
+- **本插件：** Copyright © 2026 东京AI映像合同会社。以 [GPL-3.0-or-later](LICENSE) 发布（附加条款：再分发时须保留署名，详见 [NOTICE.md](NOTICE.md)）。
 - **品牌：** KanaWorks_AI 的名称、logo 和 Kana 形象归东京AI映像合同会社所有，**不在** GPL 授权范围内。详见 [docs/brand](docs/brand/README.md)。
 - **示例模型：** 作者自己的模型、CC0 模型，以及 Blender 自带的 Suzanne。
 - **原理来源：** 用 Kuwahara 滤镜和噪波扰动法线做绘画风，是 Blender 社区里广泛分享的技法。

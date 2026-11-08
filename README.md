@@ -9,6 +9,7 @@
   <img alt="AI agent ready" src="https://img.shields.io/badge/AI_agent-ready-19b8d6?style=flat-square">
   <img alt="Free" src="https://img.shields.io/badge/price-free-2ea44f?style=flat-square">
   <a href="LICENSE"><img alt="License: GPL-3.0-or-later" src="https://img.shields.io/badge/license-GPL--3.0--or--later-6b4dff?style=flat-square"></a>
+  <a href="NOTICE.md"><img alt="Credit: KanaWorks_AI" src="https://img.shields.io/badge/credit-%40KanaWorks__AI-ff6aa2?style=flat-square"></a>
   <a href="https://github.com/kanaworksai-hue/kirapaint/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/kanaworksai-hue/kirapaint?style=flat-square&logo=github&label=stars&color=f5c518"></a>
 </p>
 
@@ -193,8 +194,24 @@ Claude Code や Codex のような、パソコンを操作できる AI エージ
 <details>
 <summary><b>作った画像や動画は商用で使えますか？</b></summary>
 
-はい。KiraPaint で作ったレンダリング画像や動画は、あなたの作品として自由に使えます。GPL が適用されるのはアドオン本体のコードで、それを使って作った作品には及びません（使ったモデルやテクスチャのライセンスには従ってください）。
+はい。KiraPaint で作ったレンダリング画像や動画は、あなたの作品として自由に使えます。GPL が適用されるのはアドオン本体のコードで、それを使って作った作品には及びません（使ったモデルやテクスチャのライセンスには従ってください）。クレジットは必要ありませんが、`Made with KiraPaint by @KanaWorks_AI` と入れてもらえると嬉しいです。
 </details>
+
+## 📝 クレジット表記
+
+KiraPaint は無料で、商用でも使えます。
+
+**アドオンを再配布・改変・同梱するとき**（フォーク、改変版、移植版、パックや製品への同梱など。有償・無償を問いません）は、次の表記をアドオンの説明文とドキュメントにそのまま残すことが**必須**です（GPL-3.0 第7条(b)に基づく追加条項。詳しくは [NOTICE.md](NOTICE.md)）。
+
+```
+KiraPaint by KanaWorks_AI (@KanaWorks_AI) — https://github.com/kanaworksai-hue/kirapaint
+```
+
+**作った画像や動画**にはクレジットは必要ありません。よければ投稿文や概要欄に入れてもらえると嬉しいです。
+
+```
+Made with KiraPaint by @KanaWorks_AI
+```
 
 ## ⭐ Star で応援する
 
@@ -239,7 +256,7 @@ agent/kirapaint_agent.py  AI エージェント用のコマンドライン
 
 ## 📄 ライセンスとクレジット
 
-- **このアドオン：** Copyright © 2026 東京AI映像合同会社。[GPL-3.0-or-later](LICENSE) で公開しています。
+- **このアドオン：** Copyright © 2026 東京AI映像合同会社。[GPL-3.0-or-later](LICENSE) で公開しています（再配布時のクレジット表記を求める追加条項付き。[NOTICE.md](NOTICE.md)）。
 - **ブランド：** KanaWorks_AI の名称、ロゴ、キャラクター Kana の権利は東京AI映像合同会社に帰属し、GPL の対象**外**です。詳しくは [docs/brand](docs/brand/README.md) を見てください。
 - **サンプル画像のモデル：** 作者が用意したモデル、CC0 のモデル、Blender 標準の Suzanne です。
 - **しくみの元になった手法：** Kuwahara フィルターとノイズでゆがめた法線による絵画風の表現は、Blender コミュニティで広く共有されている手法です。

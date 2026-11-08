@@ -9,6 +9,7 @@
   <img alt="AI agent ready" src="https://img.shields.io/badge/AI_agent-ready-19b8d6?style=flat-square">
   <img alt="Free" src="https://img.shields.io/badge/price-free-2ea44f?style=flat-square">
   <a href="LICENSE"><img alt="License: GPL-3.0-or-later" src="https://img.shields.io/badge/license-GPL--3.0--or--later-6b4dff?style=flat-square"></a>
+  <a href="NOTICE.md"><img alt="Credit: KanaWorks_AI" src="https://img.shields.io/badge/credit-%40KanaWorks__AI-ff6aa2?style=flat-square"></a>
   <a href="https://github.com/kanaworksai-hue/kirapaint/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/kanaworksai-hue/kirapaint?style=flat-square&logo=github&label=stars&color=f5c518"></a>
 </p>
 
@@ -193,8 +194,24 @@ Nothing is replaced. A "KiraPaint Surface" node is inserted in front of each Pri
 <details>
 <summary><b>Can I use my renders commercially?</b></summary>
 
-Yes. Images and videos you make with KiraPaint are your own work. The GPL covers the add-on's code, not what you make with it (follow the licenses of the models and textures you use).
+Yes. Images and videos you make with KiraPaint are your own work. The GPL covers the add-on's code, not what you make with it (follow the licenses of the models and textures you use). No credit is needed, but `Made with KiraPaint by @KanaWorks_AI` is always welcome.
 </details>
+
+## 📝 Credit
+
+KiraPaint is free, commercial use included.
+
+**When you redistribute, modify or bundle the add-on** (forks, modified versions, ports, packs or products that include it, free or paid), keeping this line unchanged in the add-on's description and its documentation is **required** (an additional term under GPLv3 section 7(b); see [NOTICE.md](NOTICE.md)):
+
+```
+KiraPaint by KanaWorks_AI (@KanaWorks_AI) — https://github.com/kanaworksai-hue/kirapaint
+```
+
+**Images and videos you make** need no credit. If you'd like to add one, this line in the post or description is very welcome:
+
+```
+Made with KiraPaint by @KanaWorks_AI
+```
 
 ## ⭐ Star it
 
@@ -239,7 +256,7 @@ agent/kirapaint_agent.py  command line for AI agents
 
 ## 📄 License and credits
 
-- **This add-on:** Copyright © 2026 Tokyo AI Visuals LLC (東京AI映像合同会社). Released under [GPL-3.0-or-later](LICENSE).
+- **This add-on:** Copyright © 2026 Tokyo AI Visuals LLC (東京AI映像合同会社). Released under [GPL-3.0-or-later](LICENSE) (with an additional term requiring attribution when you redistribute it; see [NOTICE.md](NOTICE.md)).
 - **Brand:** the KanaWorks_AI name, logo and the character Kana belong to Tokyo AI Visuals LLC and are **not** covered by the GPL. See [docs/brand](docs/brand/README.md).
 - **Sample models:** the author's own models, CC0 models, and Blender's Suzanne.
 - **Technique:** painterly rendering with Kuwahara filters and noise-distorted normals is a technique widely shared in the Blender community.
