@@ -15,7 +15,7 @@
 
 <p><a href="https://github.com/kanaworksai-hue"><img src="docs/brand/kanaworks-mark.png" height="22" alt="" align="absmiddle"></a>&nbsp;<a href="https://github.com/kanaworksai-hue"><b>KanaWorks_AI 的项目</b></a>&nbsp;·&nbsp;<a href="#-kanaworks-插件">更多插件</a></p>
 
-[日本語](README.md) | [English](README.en.md) | **简体中文**
+[日本語](README.md) | [English](README.en.md) | **简体中文** | [한국어](README.ko.md) | [Português](README.pt-BR.md) | [Español](README.es.md)
 
 [🎨 效果展示](#-效果展示) · [🚀 开始使用](#-开始使用) · [🎛️ 可以调什么](#️-可以调什么) · [❓ 常见问题](#-常见问题) · [⭐ 点个 Star](#-点个-star)
 
